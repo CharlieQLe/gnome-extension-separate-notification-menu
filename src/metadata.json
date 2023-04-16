@@ -1,0 +1,8 @@
+{
+  "name": "Separate Notification Menu",
+  "description": "Move media and notifications into a separate menu",
+  "uuid": "separate-notification-menu@charlieqle",
+  "shell-version": [
+    "44"
+  ]
+}
