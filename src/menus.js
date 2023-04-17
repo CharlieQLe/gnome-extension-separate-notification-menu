@@ -46,7 +46,8 @@ const BaseMenu = class extends PanelMenu.Button {
             style: "margin-top: 8px; margin-left: 8px; margin-bottom: 8px;",
         });
         this.menu.box.add_child(this._scrollView);
-        this.menu.box.style = `max-height: 512px;`;
+        const width = MessageListPC.child.width / St.ThemeContext.get_for_stage(global.stage).scale_factor;
+        this.menu.box.style = `max-height: 512px; min-width: ${width}px; max-width: ${width}px;`;
 
         // Create a box
         this._box = new St.BoxLayout({
