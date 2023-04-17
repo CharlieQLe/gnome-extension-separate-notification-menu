@@ -15,6 +15,7 @@ class ParentChild {
 
 const IndicatorPC = new ParentChild(DateMenu._indicator);
 const MessageListPC = new ParentChild(DateMenu._messageList);
+const Width = MessageListPC.child.width;
 
 let mediaMenu = null;
 let notificationMenu = null;
@@ -46,7 +47,7 @@ const BaseMenu = class extends PanelMenu.Button {
             style: "margin-top: 8px; margin-left: 8px; margin-bottom: 8px;",
         });
         this.menu.box.add_child(this._scrollView);
-        const width = MessageListPC.child.width / St.ThemeContext.get_for_stage(global.stage).scale_factor;
+        const width = Width / St.ThemeContext.get_for_stage(global.stage).scale_factor;
         this.menu.box.style = `max-height: 512px; min-width: ${width}px; max-width: ${width}px;`;
 
         // Create a box
