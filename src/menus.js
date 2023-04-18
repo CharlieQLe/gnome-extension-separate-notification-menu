@@ -73,7 +73,7 @@ const BaseMenu = class extends PanelMenu.Button {
     }
 
     _sync() {
-        this.visible = this._list.get_children().length > 0;
+        this.visible = !this._sectionPC.child._empty;
     }
 
     cleanup() {
@@ -125,16 +125,10 @@ const NotificationMenu = class extends BaseMenu {
         log(`Clear style: ${this._clearBtn.get_style_class_name()}`);
         this.menu.box.add_child(this._clearBtn);
         this._clearBtn.connect("clicked", () => this._sectionPC.child.clear());
-        this._clearBtn.visible = this._list.get_children().length > 1;
     }
 
     get iconName() {
         return this._settings.get_boolean("show-banners") ? NotificationMenu.DEFAULT_ICON_NAME : NotificationMenu.DISABLED_ICON_NAME;
-    }
-
-    _sync() {
-        if (this._clearBtn) this._clearBtn.visible = this._list.get_children().length > 1;
-        super._sync();
     }
 
     _onNotificationBannerChanged() {
